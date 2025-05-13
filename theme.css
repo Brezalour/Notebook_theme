@@ -78,11 +78,72 @@ svg * {
 	padding: var(--size-4-1) var(--size-4-2);
 	font-size: 14px;
 	font-weight: 500;
+	border-radius: 8px;
+	margin: 2px 2px 5px 2px;
 }
 
 .workspace-tab-header.is-active {
 	background-color: var(--background-primary);
 	border-bottom: 2px solid var(--interactive-accent);
+}
+
+.workspace-tab-header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 8px;
+	border-radius: 6px;
+	position: relative;
+}
+
+.workspace-tab-header-inner-icon {
+	display: none !important;
+}
+
+.workspace-tab-header-inner-title {
+	font-size: 13px;
+	font-weight: 500;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/* Forcer l'alignement dans tous les états */
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner,
+.workspace-tab-header.is-active .workspace-tab-header-inner,
+.workspace-tab-header:hover .workspace-tab-header-inner {
+	justify-content: center !important;
+}
+
+/* Forcer la position de la croix dans tous les états */
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner-close-button,
+.workspace-tab-header.is-active .workspace-tab-header-inner-close-button,
+.workspace-tab-header:hover .workspace-tab-header-inner-close-button {
+	left: 4px !important;
+	right: auto !important;
+}
+
+.workspace-tab-header-inner-close-button {
+	position: absolute !important;
+	left: 4px !important;
+	right: auto !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 16px !important;
+	height: 16px !important;
+	border-radius: 4px !important;
+	opacity: 0.7 !important;
+	transition: opacity 0.2s ease !important;
+}
+
+.workspace-tab-header-inner-close-button:hover {
+	opacity: 1;
+	background-color: var(--background-modifier-hover);
+}
+
+.workspace-tab-header-inner-close-button svg {
+	width: 14px;
+	height: 14px;
 }
 
 /* Notion-like buttons */
@@ -155,9 +216,27 @@ input[type="password"]:focus {
 	background-color: var(--background-modifier-hover);
 }
 
+/* Notion-like callouts */
+.callout {
+	border-radius: 12px !important;
+	padding: var(--size-4-2);
+	margin: var(--size-4-2) 0;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.callout-title {
+	border-radius: 8px 8px 0 0;
+	padding: var(--size-2-2) var(--size-4-2);
+}
+
+.callout-content {
+	border-radius: 0 0 8px 8px;
+	padding: var(--size-4-2);
+}
+
 /* Notion-like modals */
 .modal {
-	border-radius: var(--radius-m);
+	border-radius: 12px !important;
 	box-shadow: var(--shadow-l);
 	border: 1px solid var(--background-modifier-border);
 }
@@ -166,6 +245,10 @@ input[type="password"]:focus {
 	font-size: 16px;
 	font-weight: 600;
 	padding: var(--size-4-2);
+}
+
+.modal-content {
+	border-radius: 12px !important;
 }
 
 /* Notion-like headings */
@@ -647,4 +730,83 @@ body:not(.tasks) li[data-task='D'].task-list-item.is-checked {
 	color: rgba(0, 0, 0, 0.5);
 	font-size: 10px;
 	line-height: 1;
+}
+
+.vertical-tab-header {
+	border-radius: 12px 0 0 12px !important;
+}
+
+.vertical-tab-content {
+	border-radius: 0 12px 12px 0 !important;
+}
+
+.vertical-tab-nav-item {
+	border-radius: 8px !important;
+	margin: var(--size-2-1) var(--size-2-2);
+}
+
+.vertical-tab-nav-item.is-active {
+	border-radius: 8px !important;
+}
+
+/* Notion-like tags */
+.multi-select-pill {
+    border-radius: 16px;
+    padding: 2px 12px;
+    margin: 2px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.multi-select-pill:nth-child(4n+1) {
+    background-color: var(--notion-green-bg);
+    color: var(--notion-green-text);
+}
+
+.multi-select-pill:nth-child(4n+2) {
+    background-color: var(--notion-blue-bg);
+    color: var(--notion-blue-text);
+}
+
+.multi-select-pill:nth-child(4n+3) {
+    background-color: var(--notion-purple-bg);
+    color: var(--notion-purple-text);
+}
+
+.multi-select-pill:nth-child(4n+4) {
+    background-color: var(--notion-red-bg);
+    color: var(--notion-red-text);
+}
+
+.multi-select-pill-content {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.multi-select-pill-remove-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin-left: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    color: inherit;
+}
+
+.multi-select-pill-remove-button:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.multi-select-pill-remove-button svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
 }
