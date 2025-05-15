@@ -1,7 +1,7 @@
 body {
-	--radius-s: 3px;
-	--radius-m: 4px;
-	--radius-l: 6px;
+	--radius-s: 6px;
+	--radius-m: 8px;
+	--radius-l: 12px;
 	--input-radius: 3px;
 	--tab-radius-active: 3px;
 	--checkbox-radius: 3px;
@@ -293,22 +293,7 @@ blockquote {
 	color: var(--text-muted);
 }
 
-/* Notion-like tables */
-table {
-	border-collapse: collapse;
-	width: 100%;
-	margin: var(--size-4-2) 0;
-}
 
-th, td {
-	padding: var(--size-2-2) var(--size-4-2);
-	border: 1px solid var(--background-modifier-border);
-}
-
-th {
-	background-color: var(--background-secondary);
-	font-weight: 500;
-}
 
 .checkbox-container {
 	-webkit-app-region: no-drag;
@@ -512,7 +497,7 @@ li[data-task='“'] > p > input:checked {
 input[data-task='-']:checked,
 li[data-task='-'] > input:checked,
 li[data-task='-'] > p > input:checked {
-  color: var(--notion-gray-bg);
+  color: var(--notion-gray-text);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E");
 }
 body:not(.tasks)
@@ -523,7 +508,7 @@ body:not(.tasks)
   .markdown-source-view.mod-cm6
   .HyperMD-task-line[data-task]:is([data-task='-']),
 body:not(.tasks) li[data-task='-'].task-list-item.is-checked {
-  color: var(--notion-gray-bg);
+  color: var(--notion-gray-text);
   text-decoration: line-through solid var(--text-faint) 1px;
 }
 input[data-task='*']:checked,
@@ -811,10 +796,58 @@ body:not(.tasks) li[data-task='D'].task-list-item.is-checked {
     stroke: currentColor;
 }
 
-strong, b {
+.cm-strong, strong, b {
     color: var(--notion-red-text);
 }
 
-em, i {
+.cm-em, em, i {
     color: var(--notion-green-text);
 }
+
+/* Notion-like tables */
+.table-editor {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: var(--size-4-2) 0;
+    border-radius: var(--radius-m);
+    overflow: hidden;
+	background-color: var(--notion-default-bg);
+}
+
+.table-editor thead {
+    background-color: var(--notion-green-text);
+
+    font-weight: 600;
+    padding: var(--size-2-2) var(--size-4-2);
+    text-align: left;
+}
+
+.table-editor thead th {
+    color: var(--notion-default-bg);
+}
+
+.table-editor td {
+    padding: var(--size-2-2) var(--size-4-2);
+}
+
+.table-editor tr:nth-child(even) {
+    background-color: var(--notion-green-bg);
+}
+
+
+.table-cell-wrapper {
+    padding: 4px 8px;
+}
+
+div.prompt {
+    border-radius: var(--radius-l);
+}
+
+div.status-bar {
+    border-radius: var(--radius-l);
+}
+
+
+
+
