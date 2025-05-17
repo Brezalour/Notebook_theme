@@ -252,17 +252,32 @@ input[type="password"]:focus {
 }
 
 /* Notion-like headings */
-h1, h2, h3, h4, h5, h6 {
+.cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6 {
 	font-weight: 600;
 	line-height: 1.3;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.25em; }
-h4 { font-size: 1.1em; }
-h5 { font-size: 1em; }
-h6 { font-size: 0.9em; }
+.cm-header-1 { 
+	font-size: 2em;
+	background-color: var(--notion-green-bg);
+	color: var(--notion-green-text)
+}
+
+.cm-header-2 { 
+	font-size: 1.5em;
+	background-color: var(--notion-blue-bg);
+		color: var(--notion-blue-text)
+}
+
+.cm-header-3 { 
+	font-size: 1.25em;
+	background-color: var(--notion-purple-bg);
+		color: var(--notion-purple-text)
+}
+
+.cm-header-4 { font-size: 1.1em; }
+.cm-header-5 { font-size: 1em; }
+.cm-header-6 { font-size: 0.9em; }
 
 /* Notion-like lists */
 ul, ol {
@@ -804,20 +819,19 @@ body:not(.tasks) li[data-task='D'].task-list-item.is-checked {
     color: var(--notion-green-text);
 }
 
-/* Notion-like tables */
 .table-editor {
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
     margin: var(--size-4-2) 0;
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-l);
     overflow: hidden;
 	background-color: var(--notion-default-bg);
 }
 
 .table-editor thead {
     background-color: var(--notion-green-text);
-
+	color: var(--notion-default-bg);
     font-weight: 600;
     padding: var(--size-2-2) var(--size-4-2);
     text-align: left;
@@ -838,6 +852,25 @@ body:not(.tasks) li[data-task='D'].task-list-item.is-checked {
 
 .table-cell-wrapper {
     padding: 4px 8px;
+}
+
+.table-editor tr:hover {
+    background-color: var(--interactive-hover) !important; /* Utilisez une couleur de votre choix */
+}
+
+/* Pour conserver la couleur spécifique des lignes paires même au survol */
+.table-editor tr:nth-child(even):hover {
+    background-color: var(--notion-green-bg-hover, var(--notion-green-bg)) !important;
+}
+
+/* Pour les lignes d'en-tête */
+.table-editor thead tr:hover {
+    background-color: var(--notion-green-text) !important;
+}
+
+/* Également pour les cellules individuelles de l'en-tête au survol */
+.table-editor thead th:hover {
+    background-color: var(--notion-green-text) !important;
 }
 
 div.prompt {
